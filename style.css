@@ -21,22 +21,43 @@
     position: relative;
 }
 
-#main-picture {
-    background-image: url(image-equilibrium.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 18rem;
-    width: 18rem;
-    border-radius: 5%;
+.img-box {
     position: relative;
+    max-width: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     top: 1rem;
     left: 1rem;
 }
-
-#main-picture:hover{
-    background-color: hsl(177, 37%, 51%);
-    background-blend-mode:lighten;
+  
+.img-box::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 255, 248, 0.4);
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* hide element */
+    transition: opacity 0.5s ease;
 }
+  
+  /* when .img-box is hovered set ::before and .img-eye element opacity to 1 */
+.img-box:hover::before, .img-box:hover .img-eye {
+    opacity: 1;
+} 
+  
+.img {
+    width: 100%;
+    border-radius: 5%;
+}
+  
+.img-eye {
+    position: absolute;
+    opacity: 0; /* hide element */
+    transition: opacity 0.5s ease;
+}
+
 
 h1 {
     color: hsl(0, 0%, 100%);
